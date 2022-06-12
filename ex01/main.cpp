@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/11 11:58:59 by gclausse          #+#    #+#             */
-/*   Updated: 2022/06/11 11:58:59 by gclausse         ###   ########.fr       */
+/*   Created: 2022/06/12 12:34:14 by gclausse          #+#    #+#             */
+/*   Updated: 2022/06/12 12:34:14 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
 #include <iostream>
-#include <cctype>
+
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	std::string	cmd;
 
-	i = 1;
-	if (argc == 1)
+	std::cout << "Welcome to my amazing phonebook!!" << std::endl;
+	
+	while ((cmd != "EXIT"))
 	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
-	}
-	else
-	{
-		while (argv[i])
-		{
-			j = 0;
-			while (argv[i][j])
-			{
-				char ch = toupper(argv[i][j]);
-				
- 				std::cout << ch;
-				j++;
-			}
-			i++;
-		}
-		std::cout<< " " << std::endl;
+		std::cout << "Please enter a command (ADD / SEARCH / EXIT) : ";
+		std::cin >> cmd;
+		if (cmd == "ADD")
+			std::cout << "ADD" << std::endl;
+		else if (cmd == "SEARCH")
+			std::cout << "SEARCH" << std::endl;
+
 	}
 	return (0);
+
 }
