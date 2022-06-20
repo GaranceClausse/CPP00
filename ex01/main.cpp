@@ -10,15 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#include "contact.class.hpp"
 #include <string>
 #include <iostream>
-
 
 int	main(int argc, char **argv)
 {
 	std::string	cmd;
+	Contact	instance;
 
-	std::cout << "Welcome to my amazing phonebook!!" << std::endl;
 	
 	while ((cmd != "EXIT"))
 	{
@@ -27,7 +28,15 @@ int	main(int argc, char **argv)
 		if (cmd == "ADD")
 			std::cout << "ADD" << std::endl;
 		else if (cmd == "SEARCH")
-			std::cout << "SEARCH" << std::endl;
+		{
+			std::cout << "   Index  ";
+			std::cout << " | ";
+			std::cout << "First Name";	
+			std::cout << " | ";
+			std::cout << " Last Name";
+			std::cout << " | ";
+			std::cout << "  Nickname " << std::endl;
+		}
 
 	}
 	return (0);

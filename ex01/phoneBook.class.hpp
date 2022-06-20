@@ -10,4 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phoneBook.class.hpp"
+#pragma once
+
+#include "contact.class.hpp"
+
+class PhoneBook {
+	public :
+		PhoneBook(void);
+		~PhoneBook(void);		
+
+};

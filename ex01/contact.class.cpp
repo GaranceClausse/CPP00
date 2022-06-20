@@ -11,3 +11,23 @@
 /* ************************************************************************** */
 
 #include "contact.class.hpp"
+
+Contact::Contact(void){
+	std::cout << "Welcome to my amazing phonebook!!" << std::endl;
+}
+
+Contact::~Contact(void){
+	std::cout << "Destructor called" << std::endl;
+}
+
+std::string	Contact::getContact(void) const {
+	std::cout << "   Index  ";
+	std::cout << " | ";
+	std::cout << "First Name";	
+	std::cout << " | ";
+	std::cout << " Last Name";
+	std::cout << " | ";
+	std::cout << "  Nickname " << std::endl;
+
+	return ("plop");
+}

@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
 #include <cctype>
 #include <string>
-
-#ifndef CONTACT_CLASS_HPP
-#define CONTACT_CLASS_HPP
 
 
 class Contact {
@@ -40,5 +39,3 @@ private :
 	std::string	_darkestSecret;
 	int		_phoneNumber;
 };
-
-#endif
