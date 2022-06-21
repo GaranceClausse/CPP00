@@ -18,24 +18,22 @@
 int	main(int argc, char **argv)
 {
 	std::string	cmd;
-	Contact	instance;
+	Contact	contacts[8];
+	int		nb_contact;
 
-	
+	nb_contact = 0;
+	std::cout << "Welcome to my amazing phonebook!!" << std::endl;
 	while ((cmd != "EXIT"))
 	{
 		std::cout << "Please enter a command (ADD / SEARCH / EXIT) : ";
 		std::cin >> cmd;
-		if (cmd == "ADD")
-			std::cout << "ADD" << std::endl;
+		if (cmd == "ADD" && nb_contact >= 8)
+			std::cout << "Your phonebook is full!!" << std::endl;
+		else if (cmd == "ADD")
+			contacts[nb_contact++] = create_contact();
 		else if (cmd == "SEARCH")
 		{
-			std::cout << "   Index  ";
-			std::cout << " | ";
-			std::cout << "First Name";	
-			std::cout << " | ";
-			std::cout << " Last Name";
-			std::cout << " | ";
-			std::cout << "  Nickname " << std::endl;
+			contacts[0].print_contact();
 		}
 
 	}

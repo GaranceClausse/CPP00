@@ -29,13 +29,18 @@ public :
 	void	setNickname(std::string s);
 	std::string	getDarkestSecret(void) const;
 	void	setDarkestSecret(std::string s);
-	int		getPhoneNumber(void) const;
-	void	setPhoneNumber(int i);
+	std::string	getPhoneNumber(void) const;
+	void	setPhoneNumber(std::string	s);
+	
+	void	print_contact();
+
 
 private :
 	std::string	_firstName;
 	std::string	_lastName;
 	std::string	_nickname;
 	std::string	_darkestSecret;
-	int		_phoneNumber;
+	std::string	_phoneNumber;
 };
+
+Contact	create_contact();
