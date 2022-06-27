@@ -67,9 +67,37 @@ std::string	Contact::getFirstName(void) const
 	return (this->_firstName);
 }
 
+std::string tenCharString(std::string str)
+{
+	int	size;
+
+	size = str.size();
+	if (size <= 9)
+	{
+		str.insert(0, (10 - size), ' ');
+	}
+	else if (size > 10)
+	{
+		str.resize (9);
+		str.resize (10,'.');
+	}
+	return (str);
+}
+
 void 	Contact::print_contact()
 {
-	std::cout << "First Name -> " << this->_firstName << std::endl;
+	std::string	name;
+	std::string	lastName;
+	std::string	nickname;
+
+
+	name = this->_firstName;
+	lastName = this->_lastName;
+	nickname = this->_nickname;
+	std::cout <<  "Index |";
+	std::cout <<  tenCharString(name);
+	std::cout << "|" <<  tenCharString(lastName) ;
+	std::cout << "|" <<  tenCharString(nickname) << std::endl;
 }
 
 Contact	create_contact()
@@ -79,6 +107,8 @@ Contact	create_contact()
 
 	std::cout << "Ready to add a new contact to your phonebook?" << std::endl;
 
+	
+	std::getline (std::cin, cmd);
 	std::cout << "First Name ->	" ;
 	std::cin.clear();
 	std::getline (std::cin, cmd);

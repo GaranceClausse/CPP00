@@ -20,8 +20,10 @@ int	main(int argc, char **argv)
 	std::string	cmd;
 	Contact	contacts[8];
 	int		nb_contact;
+	int		i;
 
 	nb_contact = 0;
+	i = 0;
 	std::cout << "Welcome to my amazing phonebook!!" << std::endl;
 	while ((cmd != "EXIT"))
 	{
@@ -33,7 +35,13 @@ int	main(int argc, char **argv)
 			contacts[nb_contact++] = create_contact();
 		else if (cmd == "SEARCH")
 		{
-			contacts[0].print_contact();
+			std::cout << "Index |First Name|Last Name |Nickname  " << std::endl;
+			while (i < nb_contact)
+			{
+				contacts[i].print_contact();
+				i++;
+			}
+			
 		}
 
 	}
