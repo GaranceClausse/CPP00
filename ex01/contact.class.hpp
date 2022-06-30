@@ -16,11 +16,25 @@
 #include <cctype>
 #include <string>
 
+#define COLOR "\033[;"
+#define RED "31m"
+#define GREEN "32m"
+#define YELLOW "33m"
+#define BLUE "34m"
+#define MAGENTA "35m"
+#define CYAN "36m"
+#define B_RED "41m"
+#define B_GREEN "42m"
+#define B_YELLOW "43m"
+#define B_BLUE	"44m"
+#define RESET "\033[0m"
 
 class Contact {
 public :
 	Contact(void);
 	~Contact(void);
+	int	getIndex(void) const;
+	void	setIndex(int index);
 	std::string	getFirstName(void) const;
 	void	setFirstName(std::string s);
 	std::string	getLastName(void) const;
@@ -36,6 +50,7 @@ public :
 
 
 private :
+	int			_index;
 	std::string	_firstName;
 	std::string	_lastName;
 	std::string	_nickname;
@@ -43,4 +58,4 @@ private :
 	std::string	_phoneNumber;
 };
 
-Contact	create_contact();
+Contact	create_contact(int index);

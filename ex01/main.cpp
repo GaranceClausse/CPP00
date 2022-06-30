@@ -23,27 +23,28 @@ int	main(int argc, char **argv)
 	int		i;
 
 	nb_contact = 0;
-	i = 0;
-	std::cout << "Welcome to my amazing phonebook!!" << std::endl;
+	std::cout << COLOR CYAN "Welcome to my amazing phonebook!!" RESET << std::endl;
 	while ((cmd != "EXIT"))
 	{
-		std::cout << "Please enter a command (ADD / SEARCH / EXIT) : ";
+		std::cout << COLOR CYAN "Please enter a command (ADD / SEARCH / EXIT) : " RESET;
 		std::cin >> cmd;
 		if (cmd == "ADD" && nb_contact >= 8)
-			std::cout << "Your phonebook is full!!" << std::endl;
+			std::cout << COLOR RED "Your phonebook is full!!" RESET << std::endl;
 		else if (cmd == "ADD")
-			contacts[nb_contact++] = create_contact();
+			contacts[nb_contact++] = create_contact(nb_contact + 1);
 		else if (cmd == "SEARCH")
 		{
-			std::cout << "Index |First Name|Last Name |Nickname  " << std::endl;
+			std::cout << COLOR MAGENTA "Index |First Name| Last Name|  Nickname" RESET << std::endl;
+			i = 0;
 			while (i < nb_contact)
 			{
 				contacts[i].print_contact();
 				i++;
 			}
+			if (i != 0)
+				std::cout << COLOR CYAN "Please enter the index of the contact you would like to see" RESET << std::endl;
 			
 		}
-
 	}
 	return (0);
 
