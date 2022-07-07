@@ -47,6 +47,7 @@ public :
 	void	setPhoneNumber(std::string	s);
 	
 	void	print_contact();
+	void	print_info();
 
 
 private :

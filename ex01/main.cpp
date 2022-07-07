@@ -15,9 +15,20 @@
 #include <string>
 #include <iostream>
 
+int	check_index(int nb_contact, std::string index)
+{
+	int	i;
+
+	i = stoi(index);
+	if (i > nb_contact || i <= 0 || i > 8)
+		return 1;
+	return 0;
+}
+
 int	main(int argc, char **argv)
 {
 	std::string	cmd;
+	std::string index;
 	Contact	contacts[8];
 	int		nb_contact;
 	int		i;
@@ -42,8 +53,17 @@ int	main(int argc, char **argv)
 				i++;
 			}
 			if (i != 0)
+			{
 				std::cout << COLOR CYAN "Please enter the index of the contact you would like to see" RESET << std::endl;
-			
+				std::cin >> index;
+				while (check_index(nb_contact, index) == 1)
+				{
+					std::cout << COLOR RED "Please enter a valid index -> " RESET << std::endl;
+					std::cin >> index;
+				}
+				int j = stoi(index) - 1;
+				contacts[j].print_info();				
+			}
 		}
 	}
 	return (0);

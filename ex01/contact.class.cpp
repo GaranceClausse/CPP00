@@ -111,6 +111,16 @@ void 	Contact::print_contact()
 	std::cout << "|" <<  tenCharString(nickname) << std::endl;
 }
 
+void 	Contact::print_info()
+{
+	std::cout << "The contact you searched for is :" << std::endl;
+	std::cout << this->_firstName << std::endl;
+	std::cout << this->_lastName << std::endl;
+	std::cout << this->_nickname << std::endl;
+	std::cout << this->_phoneNumber << std::endl;
+	std::cout << this->_darkestSecret << std::endl;	
+}
+
 Contact	create_contact(int index)
 {
 	Contact	newContact;
