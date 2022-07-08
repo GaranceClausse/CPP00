@@ -118,40 +118,40 @@ Contact	create_contact(int index)
 
 	newContact.setIndex(index);
 	std::getline (std::cin, cmd);
-	std::cout << "First Name ->	" ;
+	std::cout << "First Name ->		" ;
 	std::cin.clear();
 	std::getline (std::cin, cmd);
 	while (cmd.empty())
 	{
 		std::cout << COLOR RED "You cannot enter an empty field. Please type your first name" RESET << std::endl;
-		std::cout << "First Name ->	" ;
+		std::cout << "First Name ->		" ;
 		std::getline (std::cin, cmd);
 	}
 	newContact.setFirstName(cmd);
-	std::cout << "Last Name ->	" ;
+	std::cout << "Last Name ->		" ;
 	std::getline (std::cin, cmd);
 	while (cmd.empty())
 	{
 		std::cout << COLOR RED "You cannot enter an empty field. Please type your last name" RESET << std::endl;
-		std::cout << "Last Name ->	" ;
+		std::cout << "Last Name ->		" ;
 		std::getline (std::cin, cmd);
 	}
 	newContact.setLastName(cmd);
-	std::cout << "Nickname ->	" ;
+	std::cout << "Nickname ->		" ;
 	std::getline (std::cin, cmd);
 	while (cmd.empty())
 	{
 		std::cout << COLOR RED "You cannot enter an empty field. Please type your nickname" RESET << std::endl;
-		std::cout << "Nickname ->	" ;
+		std::cout << "Nickname ->		" ;
 		std::getline (std::cin, cmd);
 	}
 	newContact.setNickname(cmd);
-	std::cout << "Phone number ->	" ;
+	std::cout << "Phone number ->		" ;
 	std::getline (std::cin, cmd);
 	while (cmd.empty())
 	{
 		std::cout << COLOR RED "You cannot enter an empty field. Please type your phone number" RESET << std::endl;
-		std::cout << "Phone number ->	" ;
+		std::cout << "Phone number ->		" ;
 		std::getline (std::cin, cmd);
 	}
 	newContact.setPhoneNumber(cmd);

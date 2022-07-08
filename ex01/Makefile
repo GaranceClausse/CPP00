@@ -1,5 +1,5 @@
 NAME = phonebook
-OBJS = contact.class.o phoneBook.class.o main.o
+OBJS = contact.class.o phoneBook.class.o
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror

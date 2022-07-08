@@ -15,8 +15,20 @@
 #include "contact.class.hpp"
 
 class PhoneBook {
+
 	public :
 		PhoneBook(void);
-		~PhoneBook(void);		
+		~PhoneBook(void);
+
+		public : 
+			Contact	contacts[8];
+			
+	
+			void	print_contact();
+			void	print_info();
+
+		private :
+
+
 
 };
