@@ -19,18 +19,6 @@ Contact::Contact(void){
 Contact::~Contact(void){
 	
 }
-/*
-std::string	Contact::getContact(void) const {
-	std::cout << "   Index  ";
-	std::cout << " | ";
-	std::cout << "First Name";	
-	std::cout << " | ";
-	std::cout << " Last Name";
-	std::cout << " | ";
-	std::cout << "  Nickname " << std::endl;
-
-	return ("plop");
-}*/
 
 void		Contact::setIndex(int index)
 {
@@ -113,12 +101,12 @@ void 	Contact::print_contact()
 
 void 	Contact::print_info()
 {
-	std::cout << "The contact you searched for is :" << std::endl;
-	std::cout << this->_firstName << std::endl;
-	std::cout << this->_lastName << std::endl;
-	std::cout << this->_nickname << std::endl;
-	std::cout << this->_phoneNumber << std::endl;
-	std::cout << this->_darkestSecret << std::endl;	
+	std::cout << COLOR MAGENTA "The contact you searched for is :" RESET << std::endl;
+	std::cout << COLOR CYAN "First name : 	  " RESET << this->_firstName << std::endl;
+	std::cout << COLOR CYAN "Last name :	  " RESET << this->_lastName << std::endl;
+	std::cout << COLOR CYAN "Nickname : 	  " RESET << this->_nickname << std::endl;
+	std::cout << COLOR CYAN "Phone number :    " RESET << this->_phoneNumber << std::endl;
+	std::cout << COLOR CYAN "Darkest Secret :  " RESET << this->_darkestSecret << std::endl;
 }
 
 Contact	create_contact(int index)

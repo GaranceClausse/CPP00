@@ -31,23 +31,27 @@ int	main(int argc, char **argv)
 	std::string index;
 	Contact	contacts[8];
 	int		nb_contact;
+	int		max;
 	int		i;
 
 	nb_contact = 0;
+	max = 0;
 	std::cout << COLOR CYAN "Welcome to my amazing phonebook!!" RESET << std::endl;
 	while ((cmd != "EXIT"))
 	{
 		std::cout << COLOR CYAN "Please enter a command (ADD / SEARCH / EXIT) : " RESET;
 		std::cin >> cmd;
-		if (cmd == "ADD" && nb_contact >= 8)
-			std::cout << COLOR RED "Your phonebook is full!!" RESET << std::endl;
-		else if (cmd == "ADD")
+		if (cmd == "ADD" && (nb_contact % 8) == 0)
+			nb_contact = 0;
+		if (cmd == "ADD")
 			contacts[nb_contact++] = create_contact(nb_contact + 1);
+		if (nb_contact == 8)
+			max = 8;
 		else if (cmd == "SEARCH")
 		{
 			std::cout << COLOR MAGENTA "Index |First Name| Last Name|  Nickname" RESET << std::endl;
 			i = 0;
-			while (i < nb_contact)
+			while (i < nb_contact || i < max)
 			{
 				contacts[i].print_contact();
 				i++;
