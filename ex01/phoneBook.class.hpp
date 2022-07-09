@@ -17,7 +17,7 @@
 class PhoneBook {
 
 	public :
-		PhoneBook(void);
+		PhoneBook(void) : _nb_contact(0), _max_contact(0) {};
 		~PhoneBook(void);
 		Contact	get_contact(int index) const;
 		void	print_phoneBook() const;

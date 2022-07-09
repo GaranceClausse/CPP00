@@ -12,10 +12,6 @@
 
 #include "phoneBook.class.hpp"
 
-PhoneBook::PhoneBook(void){
-	
-}
-
 PhoneBook::~PhoneBook(void){
 	
 }
