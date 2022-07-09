@@ -19,16 +19,14 @@ class PhoneBook {
 	public :
 		PhoneBook(void);
 		~PhoneBook(void);
-
-		public : 
-			Contact	contacts[8];
-			
-	
-			void	print_contact();
-			void	print_info();
+		Contact	get_contact(int index) const;
+		void	print_phoneBook() const;
+		void	search_contact() const;
+		void 	add_contact();
 
 		private :
-
-
+			Contact	_contacts[8];
+			int		_nb_contact;
+			int		_max_contact;
 
 };

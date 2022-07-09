@@ -12,63 +12,93 @@
 
 #include "phoneBook.class.hpp"
 
-int	check_index(int nb_contact, std::string index)
+PhoneBook::PhoneBook(void){
+	
+}
+
+PhoneBook::~PhoneBook(void){
+	
+}
+
+int	check_index(int nb_contact, int max_contact, std::string index)
 {
 	int	i;
 
 	i = stoi(index);
-	if (i > nb_contact || i <= 0 || i > 8)
+	if ((i > nb_contact && i > max_contact) || i <= 0 || i > 8)
 		return 1;
 	return 0;
 }
 
+Contact 	PhoneBook::get_contact(int index) const
+{
+	return (this->_contacts[index]);
+}
+
+void 	PhoneBook::print_phoneBook() const
+{
+	for (int i = 0; i < this->_nb_contact; ++i)
+	{
+		get_contact(i).print_info();
+	}
+}
+
+void 	PhoneBook::add_contact()
+{
+	if (this->_nb_contact % 8 == 0)
+			this->_nb_contact = 0;
+	_contacts[this->_nb_contact++] = create_contact(this->_nb_contact + 1);
+	if (this->_nb_contact == 8)
+		this->_max_contact = 8;
+}
+
+void	PhoneBook::search_contact() const
+{
+	int	i;	
+	std::string index;
+
+	i = 0;
+	if (this->_nb_contact == 0 && this->_max_contact == 0)
+		std::cout << COLOR RED "Your phonebook is empty, please add contacts first!" RESET << std::endl;
+	else
+		std::cout << COLOR MAGENTA "Index |First Name| Last Name|  Nickname" RESET << std::endl;
+	while (i < this->_nb_contact || i < this->_max_contact)
+	{
+		get_contact(i).print_contact();
+		i++;
+	}
+	if (i != 0)
+	{
+		std::cout << COLOR CYAN "Please enter the index of the contact you would like to see" RESET << std::endl;
+		std::cin >> index;
+		while (check_index(this->_nb_contact, this->_max_contact, index) == 1)
+		{
+			std::cout << COLOR RED "Please enter a valid index -> " RESET << std::endl;
+			std::cin >> index;
+		}
+		int j = stoi(index) - 1;
+		get_contact(j).print_info();				
+	}
+	
+}
+
 int	main(int argc, char **argv)
 {
+	PhoneBook	phoneBook;
 	std::string	cmd;
-	std::string index;
-	Contact	contacts[8];
-	int		nb_contact;
 	int		max;
 	int		i;
 
-	nb_contact = 0;
 	max = 0;
 	std::cout << COLOR CYAN "Welcome to my amazing phonebook!!" RESET << std::endl;
 	while ((cmd != "EXIT"))
 	{
 		std::cout << COLOR CYAN "Please enter a command (ADD / SEARCH / EXIT) : " RESET;
 		std::cin >> cmd;
-		if (cmd == "ADD" && (nb_contact % 8) == 0)
-			nb_contact = 0;
 		if (cmd == "ADD")
-			contacts[nb_contact++] = create_contact(nb_contact + 1);
-		if (nb_contact == 8)
-			max = 8;
+			phoneBook.add_contact();
 		else if (cmd == "SEARCH")
-		{
-			if (max == 0 && nb_contact == 0)
-				std::cout << COLOR RED "Your phonebook is empty, please add contacts first!" RESET << std::endl;
-			else
-				std::cout << COLOR MAGENTA "Index |First Name| Last Name|  Nickname" RESET << std::endl;
-			i = 0;
-			while (i < nb_contact || i < max)
-			{
-				contacts[i].print_contact();
-				i++;
-			}
-			if (i != 0)
-			{
-				std::cout << COLOR CYAN "Please enter the index of the contact you would like to see" RESET << std::endl;
-				std::cin >> index;
-				while (check_index(nb_contact, index) == 1)
-				{
-					std::cout << COLOR RED "Please enter a valid index -> " RESET << std::endl;
-					std::cin >> index;
-				}
-				int j = stoi(index) - 1;
-				contacts[j].print_info();				
-			}
-		}
+			phoneBook.search_contact();
 	}
 	return (0);
 
