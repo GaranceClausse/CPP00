@@ -20,10 +20,22 @@ int	check_index(int nb_contact, int max_contact, std::string index)
 {
 	int	i;
 
-	i = stoi(index);
+	stringstream degree(index);
+	degree >> i;
 	if ((i > nb_contact && i > max_contact) || i <= 0 || i > 8)
 		return 1;
 	return 0;
+}
+
+int	PhoneBook::get_nbcontact(void) const
+{
+	return (this->_nb_contact);
+}
+
+void		PhoneBook::set_nbcontact(int nb_contact)
+{
+	this->_nb_contact = nb_contact;
+	return ;
 }
 
 Contact 	PhoneBook::get_contact(int index) const
@@ -43,14 +55,16 @@ void 	PhoneBook::add_contact()
 {
 	if (this->_nb_contact % 8 == 0)
 			this->_nb_contact = 0;
-	_contacts[this->_nb_contact++] = create_contact(this->_nb_contact + 1);
+	_contacts[get_nbcontact()] = create_contact(this->_nb_contact + 1);
+	set_nbcontact(_nb_contact + 1);
 	if (this->_nb_contact == 8)
 		this->_max_contact = 8;
 }
 
 void	PhoneBook::search_contact() const
 {
-	int	i;	
+	int	i;
+	int	j;
 	std::string index;
 
 	i = 0;
@@ -66,14 +80,19 @@ void	PhoneBook::search_contact() const
 	if (i != 0)
 	{
 		std::cout << COLOR CYAN "Please enter the index of the contact you would like to see" RESET << std::endl;
-		std::cin >> index;
-		while (check_index(this->_nb_contact, this->_max_contact, index) == 1)
+		std::getline (std::cin, index);
+		while (check_index(this->_nb_contact, this->_max_contact, index) == 1 && !std::cin.eof())
 		{
 			std::cout << COLOR RED "Please enter a valid index -> " RESET << std::endl;
-			std::cin >> index;
+			std::getline (std::cin, index);
 		}
-		int j = stoi(index) - 1;
-		get_contact(j).print_info();				
+		if (!std::cin.eof())
+		{
+			stringstream degree(index);
+			degree >> j;
+			j -= 1;
+			get_contact(j).print_info();
+		}			
 	}
 	
 }
@@ -83,14 +102,19 @@ int	main(int argc, char **argv)
 	PhoneBook	phoneBook;
 	std::string	cmd;
 	int		max;
-	int		i;
+	(void)argv;
 
 	max = 0;
+	if (argc != 1)
+	{
+		std::cout << "Error : the program doesn't handle arguments"<< std::endl;
+		return (1);
+	}
 	std::cout << COLOR CYAN "Welcome to my amazing phonebook!!" RESET << std::endl;
-	while ((cmd != "EXIT"))
+	while ((cmd != "EXIT") && !std::cin.eof())
 	{
 		std::cout << COLOR CYAN "Please enter a command (ADD / SEARCH / EXIT) : " RESET;
-		std::cin >> cmd;
+		std::getline (std::cin, cmd);
 		if (cmd == "ADD")
 			phoneBook.add_contact();
 		else if (cmd == "SEARCH")

@@ -15,6 +15,8 @@
 #include <iostream>
 #include <cctype>
 #include <string>
+#include <sstream>
+using namespace std;
 
 #define COLOR "\033[;"
 #define RED "31m"

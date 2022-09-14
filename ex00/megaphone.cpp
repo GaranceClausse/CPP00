@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
-		std::cout<< " " << std::endl;
+		std::cout<< "" << std::endl;
 	}
 	return (0);
 }

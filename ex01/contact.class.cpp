@@ -60,9 +60,24 @@ int	Contact::getIndex(void) const
 	return (this->_index);
 }
 
-std::string	Contact::getFirstName(void) const
+std::string	Contact::getLastName(void) const
 {
-	return (this->_firstName);
+	return (this->_lastName);
+}
+
+std::string	Contact::getNickname(void) const
+{
+	return (this->_nickname);
+}
+
+std::string	Contact::getDarkestSecret(void) const
+{
+	return (this->_darkestSecret);
+}
+
+std::string	Contact::getPhoneNumber(void) const
+{
+	return (this->_phoneNumber);
 }
 
 std::string tenCharString(std::string str)
@@ -121,7 +136,7 @@ Contact	create_contact(int index)
 	std::cout << "First Name ->		" ;
 	std::cin.clear();
 	std::getline (std::cin, cmd);
-	while (cmd.empty())
+	while (cmd.empty() && !std::cin.eof())
 	{
 		std::cout << COLOR RED "You cannot enter an empty field. Please type your first name" RESET << std::endl;
 		std::cout << "First Name ->		" ;
@@ -130,7 +145,7 @@ Contact	create_contact(int index)
 	newContact.setFirstName(cmd);
 	std::cout << "Last Name ->		" ;
 	std::getline (std::cin, cmd);
-	while (cmd.empty())
+	while (cmd.empty() && !std::cin.eof())
 	{
 		std::cout << COLOR RED "You cannot enter an empty field. Please type your last name" RESET << std::endl;
 		std::cout << "Last Name ->		" ;
@@ -139,7 +154,7 @@ Contact	create_contact(int index)
 	newContact.setLastName(cmd);
 	std::cout << "Nickname ->		" ;
 	std::getline (std::cin, cmd);
-	while (cmd.empty())
+	while (cmd.empty() && !std::cin.eof())
 	{
 		std::cout << COLOR RED "You cannot enter an empty field. Please type your nickname" RESET << std::endl;
 		std::cout << "Nickname ->		" ;
@@ -148,7 +163,7 @@ Contact	create_contact(int index)
 	newContact.setNickname(cmd);
 	std::cout << "Phone number ->		" ;
 	std::getline (std::cin, cmd);
-	while (cmd.empty())
+	while (cmd.empty() && !std::cin.eof())
 	{
 		std::cout << COLOR RED "You cannot enter an empty field. Please type your phone number" RESET << std::endl;
 		std::cout << "Phone number ->		" ;
@@ -157,7 +172,7 @@ Contact	create_contact(int index)
 	newContact.setPhoneNumber(cmd);
 	std::cout << "Darkest secret ->	" ;
 	std::getline (std::cin, cmd);
-	while (cmd.empty())
+	while (cmd.empty() && !std::cin.eof())
 	{
 		std::cout << COLOR RED "You cannot enter an empty field. Please type your darkest secret" RESET<< std::endl;
 		std::cout << "Darkest secret ->	" ;

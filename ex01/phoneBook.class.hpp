@@ -20,6 +20,8 @@ class PhoneBook {
 		PhoneBook(void) : _nb_contact(0), _max_contact(0) {};
 		~PhoneBook(void);
 		Contact	get_contact(int index) const;
+		void	set_nbcontact(int nb_contact);
+		int		get_nbcontact(void) const;
 		void	print_phoneBook() const;
 		void	search_contact() const;
 		void 	add_contact();
